@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SouvenirSales.WebUI.Models.Entities.OrderProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="margin-top:5%">
+            <h4>Product List</h4>
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Price</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.ID</th>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Product.Description</td>
+                            <td>@item.Product.Model</td>
+                            <td>@item.Product.Brand</td>
+                            <td>@item.Product.Price</td>
+                            
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <a href="/Admin/OrderList" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Go To OrderList</a>
+        </div>
+    </div>
+</div>
+
+

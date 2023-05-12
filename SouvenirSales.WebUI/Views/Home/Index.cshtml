@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SouvenirSales.WebUI.Models.Entities.Product>
+    @{ 
+       
+            Layout = "~/Views/Shared/_UserLayout.cshtml";
+        
+    }
+
+<div class="container">
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6" style="margin-top:5%">
+
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="#">
+                            @if (item.ImageUrl != null)
+                            {
+                                <img class="pic-1" src="@item.ImageUrl">
+
+                            }
+                            else
+                            {
+                                <img class="pic-1" src="">
+
+                            }
+
+                        </a>
+                        <ul class="social">
+                            <li><a href="/Product/Details?id=@item.ID" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="/Basket/AddToBasket?id=@item.ID" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                        <span class="product-new-label">Sale</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">@item.Name</a></h3>
+                        <div class="price">
+                            @item.Price ₺
+                        </div>
+                        <a class="btn btn-warning" href="/Basket/AddToBasket?id=@item.ID">+ Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        }
+
+    </div>
+</div>
+<hr>

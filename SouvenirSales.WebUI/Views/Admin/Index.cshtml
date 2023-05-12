@@ -1,0 +1,48 @@
+﻿@model SouvenirSales.WebUI.Models.ViewModels.StatisticViewModel
+<style>
+    .statistic {
+        color: #03A9F4;
+    }
+</style>
+
+<div class="row" style="margin-top:5%">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fa fa-truck fa-5x statistic" aria-hidden="true"> @Model.OrderCount</i></h5>
+                
+                <a href="/Admin/OrderList" class="btn btn-primary">Go To Order List</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fa fa-users fa-5x statistic" aria-hidden="true"> @Model.UserCount</i></h5>
+                
+                <a href="/Admin/UserList" class="btn btn-primary">Go To User List</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:5%">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fa fa-gift fa-5x statistic" aria-hidden="true"> @Model.ProductCount</i></h5>
+                
+                <a href="/Product/Index" class="btn btn-primary">Go To Product List</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fa fa-th-list fa-5x statistic" aria-hidden="true"> @Model.CategoryCount</i></h5>
+
+                
+                <a href="/Category/Index" class="btn btn-primary">Go To Category</a>
+            </div>
+        </div>
+    </div>
+</div>

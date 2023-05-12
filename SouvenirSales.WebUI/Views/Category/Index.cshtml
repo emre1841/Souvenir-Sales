@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SouvenirSales.WebUI.Models.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-12" style="margin-top:5%">
+                
+                    <a href="/Category/Create" class="btn btn-primary">Add Category</a>
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">CreatedDate</th>
+                                <th scope="col">IsActive</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.ID</th>
+                                    <td>@item.Name</td>
+                                    <td>@item.CreateDate</td>
+                                    <td>
+                                        @if (item.IsActive == true)
+                                        {
+                                            <b>Active</b>
+                                        }
+
+                                        else
+                                        {
+                                            <b>Passive</b>
+                                        }
+                                    </td>
+                                    <td><a href="/Category/Delete?id=@item.ID" ><i class="far fa-trash-alt"></i></a></td>
+                                    
+                                </tr>
+                            }
+
+                            
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+</div>

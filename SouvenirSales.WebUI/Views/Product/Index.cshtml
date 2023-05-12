@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SouvenirSales.WebUI.Models.Entities.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="margin-top:5%">
+            <a href="/Product/Create" class="btn btn-danger">Add Product</a>
+            <table class="table table-bordered table-responsive">
+
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">CreatedDate</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">CreateUserId</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <th scope="row">@item.ID</th>
+                        <td>@item.Name</td>
+                        <td>@item.Brand</td>
+                        <td>@item.Model</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price ₺</td>
+                        <td>@item.CreateDate</td>
+                        <td>@item.Category.Name</td>
+                        <td>@item.Category.CreateUserID</td>
+                        <td>
+                            <a href="/Product/Delete?id=@item.ID"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
